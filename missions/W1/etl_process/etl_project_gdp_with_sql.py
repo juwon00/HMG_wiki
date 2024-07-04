@@ -174,7 +174,7 @@ def select_gdp_top5_each_region():
     # 데이터 확인
     cursor.execute(
         """
-        SELECT Region, AVG(GDP_USD_billion) AS Average_GDP
+        SELECT Region, ROUND(AVG(GDP_USD_billion), 2) AS Average_GDP
         FROM (
             SELECT Country, GDP_USD_billion, Region,
                 ROW_NUMBER() OVER (PARTITION BY Region ORDER BY GDP_USD_billion DESC) AS rn
