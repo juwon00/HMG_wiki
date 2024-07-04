@@ -116,3 +116,78 @@ def select_gdp_over_100B():
 
     log("select gdp over 100B data data end")
     return rows
+
+
+# 테이블에 Region 컬럼 추가
+def alert_new_column_region():
+    log("alert_new_column_region start")
+    # 데이터베이스 연결 (파일 기반 DB를 사용)
+    conn = sqlite3.connect("World_Economies.db")
+
+    # 커서 생성
+    cursor = conn.cursor()
+
+    # 데이터 확인
+    cursor.execute("ALTER TABLE Countries_by_GDP ADD COLUMN Region TEXT")
+
+    # 데이터베이스 연결 종료
+    conn.close()
+
+    log("alert_new_column_region end")
+
+
+# 테이블에 Region 데이터 삽입
+def insert_region_data_to_table(gdp):
+    log("insert region data to table start")
+    # 데이터베이스 연결 (파일 기반 DB를 사용)
+    conn = sqlite3.connect("World_Economies.db")
+
+    # 커서 생성
+    cursor = conn.cursor()
+
+    # 데이터 삽입
+    for index, row in gdp.iterrows():
+        cursor.execute(
+            """
+            INSERT INTO Countries_by_GDP (Country, GDP_USD_billion, Region) VALUES (?, ?, ?)
+        """,
+            (row["Country"], row["GDP_USD_billion"], row["Region"]),
+        )
+
+    # 변경 사항 저장
+    conn.commit()
+
+    # 데이터베이스 연결 종료
+    conn.close()
+    log("insert region data to table end")
+
+
+# Region별 TOP5 평균데이터 검색
+def select_gdp_top5_each_region():
+    log("select gdp top5 each regoin start")
+    # 데이터베이스 연결 (파일 기반 DB를 사용)
+    conn = sqlite3.connect("World_Economies.db")
+
+    # 커서 생성
+    cursor = conn.cursor()
+
+    # 데이터 확인
+    cursor.execute(
+        """
+        SELECT Region, AVG(GDP_USD_billion) AS Average_GDP
+        FROM (
+            SELECT Country, GDP_USD_billion, Region,
+                ROW_NUMBER() OVER (PARTITION BY Region ORDER BY GDP_USD_billion DESC) AS rn
+            FROM Countries_by_GDP
+        )
+        WHERE rn <= 5
+        GROUP BY Region;
+    """
+    )
+    rows = cursor.fetchall()
+
+    # 데이터베이스 연결 종료
+    conn.close()
+
+    log("select gdp top5 each regoin end")
+    return rows
