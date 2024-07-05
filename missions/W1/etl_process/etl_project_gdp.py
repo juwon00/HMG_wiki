@@ -20,7 +20,7 @@ def log(text):
 
 
 def extract():
-
+    log("Extract start")
     url = "https://en.wikipedia.org/wiki/List_of_countries_by_GDP_%28nominal%29"
     response = requests.get(url)
     response.raise_for_status()
@@ -48,6 +48,7 @@ def extract():
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(json_data)
 
+    log("Extract end")
     return json_data
 
 
@@ -69,7 +70,7 @@ def preprocess_gdp(row):
 
 
 def transform(countries_by_gdp):
-
+    log("Transform start")
     df = pd.read_json(countries_by_gdp, orient="records")
     df = df.apply(preprocess_gdp, axis=1)
     df = df.dropna(axis=0).reset_index(drop=True)
@@ -84,10 +85,12 @@ def transform(countries_by_gdp):
             region_map[country] = region
     df["Region"] = df["Country"].map(region_map)
 
+    log("Transform end")
     return df
 
 
 def load(transformed_gdp):
+    log("Load start")
     db_path = "missions/W1/etl_process//World_Economies.db"
     conn = sqlite3.connect(db_path)
     transformed_gdp.to_sql("Countries_by_GDP", conn, index=False, if_exists="replace")
@@ -99,10 +102,11 @@ def load(transformed_gdp):
     file_path = os.path.join(folder_path, "Countries_by_GDP_with_Region.json")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(json_data)
-
+    log("Load end")
 
 # gdp 100B 이상인 국가 출력하기
 def gdp_over_100B_print():
+    log("print gdp over 100B country start")
     json_file_path = "missions/W1/etl_process/Countries_by_GDP_with_Region.json"
     with open(json_file_path, "r", encoding="utf-8") as f:
         countries_by_continent = json.load(f)
@@ -111,10 +115,12 @@ def gdp_over_100B_print():
             print(country["Country"])
 
     print(countries_by_continent)
+    log("print gdp over 100B country end")
 
 
 # 각 Region별 GDP TOP5 국가 평균 출력하기
 def top5_each_region_mean_print():
+    log("print top3 each region country mean start")
     json_file_path = "missions/W1/etl_process/Countries_by_GDP_with_Region.json"
     with open(json_file_path, "r", encoding="utf-8") as f:
         countries_by_continent = json.load(f)
@@ -134,10 +140,12 @@ def top5_each_region_mean_print():
     ].round(2)
 
     print(average_gdp_per_region)
+    log("print top3 each region country mean end")
 
 
 # gdp 100B 이상인 국가 출력하기
 def gdp_over_100B_print_sql():
+    log("print gdp over 100B country start")
     db_path = "missions/W1/etl_process//World_Economies.db"
     conn = sqlite3.connect(db_path)
     sql = "SELECT Country FROM Countries_by_GDP WHERE GDP_USD_billion >= 100"
@@ -148,6 +156,7 @@ def gdp_over_100B_print_sql():
 
     for row in rows:
         print(row)
+    log("print gdp over 100B country end")
 
 
 # 각 Region별 GDP TOP5 국가 평균 출력하기
