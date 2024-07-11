@@ -49,13 +49,13 @@
 
 https://www.teamblind.com/kr/company/현대자동차/reviews?page=1
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled.png)
+<img width="764" alt="Untitled" src="https://github.com/juwon00/HMG_wiki/assets/99171610/75f90315-5d25-4772-93d5-ed44a9a2f094">
 
 1. selenium을 이용해 크롤링 작업을 하였음.
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%201.png)
+<img width="874" alt="Untitled 1" src="https://github.com/juwon00/HMG_wiki/assets/99171610/f4fd7984-2857-4782-935c-9887c92bb02f">
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%202.png)
+<img width="308" alt="Untitled 2" src="https://github.com/juwon00/HMG_wiki/assets/99171610/d83fa7d9-ae5e-40cd-bef4-ab3917c38ec9">
 
 | 커리어 향상 | 업무와 삶의 균형 | 급여 및 복지 | 사내 문화	 | 경영진 |
 | --- | --- | --- | --- | --- |
@@ -67,7 +67,7 @@ https://www.teamblind.com/kr/company/현대자동차/reviews?page=1
 1. 워드클라우드를 진행하기 위해 str로 이루어진 “제목”, “장점”, “단점” 을 형태소 분석기를 통해 명사만 추출
 2. 해당 단어들의 빈도 Counter를 통해 데이터셋 구축 하였음.
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%203.png)
+<img width="198" alt="Untitled 3" src="https://github.com/juwon00/HMG_wiki/assets/99171610/e05f9dc0-d750-4998-b84c-b965b2080965">
 
 ---
 
@@ -79,7 +79,7 @@ https://www.teamblind.com/kr/company/현대자동차/reviews?page=1
 - 이 과정을 하며 전체 데이터셋 (약 7천여개)를 크롤링을 다시 진행 하였음.
 - 샘플 데이터를 통해 기본적인 데이터 특성을 파악하고, 분석 방법론을 검증. 이 과정에서 유의미한 패턴이나 문제점을 발견하여 이후 전체 데이터 분석에 반영함.
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%204.png)
+![Untitled 4](https://github.com/juwon00/HMG_wiki/assets/99171610/369090c9-af7d-4767-b615-6320b928fd80)
 
 ---
 
@@ -91,7 +91,8 @@ https://www.teamblind.com/kr/company/현대자동차/reviews?page=1
 
 ### EDA
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%205.png)
+<img width="302" alt="Untitled 5" src="https://github.com/juwon00/HMG_wiki/assets/99171610/8f9aa97e-68c4-4f56-b509-6b526ee64a56">
+
 
 - ‘업무와 삶의 균형’의 평점이 다른 항목에 비해 높다
 
@@ -103,7 +104,7 @@ https://www.teamblind.com/kr/company/현대자동차/reviews?page=1
 
 - **전체 제목**
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%206.png)
+![Untitled 6](https://github.com/juwon00/HMG_wiki/assets/99171610/8e63f881-b6a8-4ca8-951c-696e716841e5)
 
 - 가설에 맞게 제목에 워라벨에 대한 빈도수가 가장 높다.
     - 장점 역시 워라벨에 대한 빈도수가 많으므로 현대자동차 인사 담당자는 직원들의 워라벨은 지금과 동일하게 유지하는 쪽으로 가면 좋을 것 같다
@@ -113,7 +114,7 @@ https://www.teamblind.com/kr/company/현대자동차/reviews?page=1
 
 ### EDA
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%207.png)
+<img width="289" alt="Untitled 7" src="https://github.com/juwon00/HMG_wiki/assets/99171610/f36ec8cf-5680-4e05-902e-06d4b66fed48">
 
 - 총점이 전체적으로 고른 편이긴 하나 **1점**의 빈도가 높은것을 볼 수 있다
 - 총점이 1~2점일 때 부정, 4~5점일 때 긍정으로 생각
@@ -126,9 +127,9 @@ https://www.teamblind.com/kr/company/현대자동차/reviews?page=1
 
 - **총점이 1점, 5점일 때 제목**
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%208.png)
+![Untitled 8](https://github.com/juwon00/HMG_wiki/assets/99171610/1582155a-dd44-45b1-96de-42aae0e8db70)
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%209.png)
+![Untitled 9](https://github.com/juwon00/HMG_wiki/assets/99171610/fae8f792-ba80-4b6d-844c-5f3a4778deda)
 
 - 단점에는 연봉에 대한 빈도수가 가장 많이 나왔다.
     - 현대자동차 인사 담당자는 직원들의 연봉(성과금)을 올림으로써 인재 유지에 힘쓸 수 있다.
@@ -142,9 +143,9 @@ https://www.teamblind.com/kr/company/현대자동차/reviews?page=1
 
 ### EDA
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%2010.png)
+<img width="583" alt="Untitled 10" src="https://github.com/juwon00/HMG_wiki/assets/99171610/8e8cc989-9719-4190-8f85-d6f36a367f37">
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%2011.png)
+<img width="475" alt="Untitled 11" src="https://github.com/juwon00/HMG_wiki/assets/99171610/302d1405-c055-4187-a096-fffa20593c63">
 
 - 연구개발 (R&D)의 비중이 절반정도 차지하고 있는것을 볼 수 있다.
 - 연구개발 (R&D)의 평균 점수가 다른직무의 평균점수보다 0.6점정도 낮은 것을 볼 수 있다.
@@ -156,9 +157,9 @@ https://www.teamblind.com/kr/company/현대자동차/reviews?page=1
 
 ### 결론
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%2012.png)
+![Untitled 12](https://github.com/juwon00/HMG_wiki/assets/99171610/e521c624-e298-4f4e-9a10-cfb099747b9d)
 
-![Untitled](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%2013.png)
+![Untitled 13](https://github.com/juwon00/HMG_wiki/assets/99171610/6bcc79ab-ea26-44e7-bac3-a45a5278799d)
 
 - 연구개발(R&D)와 그 외 직무(생산 엔지니어) 비교
     - 다른 직무에서의 단점에서는 나오지 않았지만 연구개발(R&D) 직무에서의 단점에서 많은 빈도수가 나온 ‘출퇴근’ 문제를 통근버스, 기숙사 제공 등의 복지를 이용해 해결하면 전체적인 직원 만족도가 증가할 수 있다.
@@ -167,7 +168,7 @@ https://www.teamblind.com/kr/company/현대자동차/reviews?page=1
 
 ## 개선사항
 
-![쿠팡 전용페이지](Main%20e37ebfae2ea041c88c23252ce55546f6/Untitled%2014.png)
+![Untitled 14](https://github.com/juwon00/HMG_wiki/assets/99171610/a2bc8fbf-a9e4-4242-8a96-b7e7fbe7207a)
 
 쿠팡 전용페이지
 
