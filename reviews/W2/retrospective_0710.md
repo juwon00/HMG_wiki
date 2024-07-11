@@ -13,7 +13,7 @@ Docker 이미지 생성하기
   - psutil과 cffi 라이브러리가 빌드하는 동안 필요한 헤더 파일들이 부족
     - bash gcc g++ musl-dev linux-headers libffi-dev python3-dev openssl-dev 등 설치
 - 어떤 화일을 담아야 할까요?
-  - RUN pip3 install --no-cache notebook (실행 시 노트북 실행하도록)
+  - RUN pip3 install --no-cache jupyterlab (실행 시 JupyterLab 실행하도록)
   - EXPOSE 8888 (포트번호 설정)
   
 <br>
